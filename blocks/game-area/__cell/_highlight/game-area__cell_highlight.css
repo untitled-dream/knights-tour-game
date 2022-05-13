@@ -3,3 +3,7 @@
     background-color: rgba(178, 214, 248, .5);
     font-size: 25px;
 }
+
+.game-area__cell_highlight:hover {
+    background-color: rgb(93, 125, 163);;
+}

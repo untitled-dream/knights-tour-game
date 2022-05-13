@@ -10,12 +10,8 @@
     transition: background-color .15s linear;
 }
 
-.game-area__cell:hover {
-    background-color: rgb(93, 125, 163)
-}
-
 .game-area__cell[disabled]:hover {
-    background-color: inherit;
+
     cursor: default;
     transition: background-color .15s linear;
 }
