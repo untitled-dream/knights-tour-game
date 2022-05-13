@@ -1,6 +1,7 @@
 .game-area__cell {
     background-color: transparent;
     border: none;
+    font-size: 25px;
     height: 10%;
     width: 10%;
     cursor: pointer;
@@ -11,7 +12,12 @@
 }
 
 .game-area__cell[disabled]:hover {
-
     cursor: default;
     transition: background-color .15s linear;
+}
+
+@media screen and (max-width: 600px) {
+    .game-area__cell {
+        font-size: 16px;
+    }
 }

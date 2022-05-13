@@ -78,7 +78,8 @@ function checkCells(currentCell) {
             countPossibleMoves++;
         } 
         
-        if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter -1){
+        if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter -1) {
+            cellArray.classList.remove("game-area__cell_highlight");
             cellArray.classList.remove("game-area__cell_active");
             cellArray.classList.add("game-area__cell_select")
         }
