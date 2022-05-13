@@ -4,3 +4,9 @@
     font-size: 25px;
     pointer-events: none;
 }
+
+@media screen and (max-width: 600px) {
+    .game-area__cell_active {
+        font-size: 16px;
+    }
+}

@@ -15,6 +15,7 @@
 }
 
 .game-area__cell[disabled]:hover {
+    background-color: inherit;
     cursor: default;
     transition: background-color .15s linear;
 }
