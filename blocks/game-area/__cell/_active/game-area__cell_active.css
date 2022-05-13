@@ -1,0 +1,6 @@
+.game-area__cell_active {
+    color: #fff;
+    background-color: rgb(93, 125, 163);
+    font-size: 25px;
+    pointer-events: none;
+}

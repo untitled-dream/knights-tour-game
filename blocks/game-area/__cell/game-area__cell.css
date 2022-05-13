@@ -1,0 +1,21 @@
+.game-area__cell {
+    background-color: transparent;
+    border: none;
+    height: 10%;
+    width: 10%;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+    transition: background-color .15s linear;
+}
+
+.game-area__cell:hover {
+    background-color: rgb(93, 125, 163)
+}
+
+.game-area__cell[disabled]:hover {
+    background-color: transparent;
+    cursor: default;
+    transition: background-color .15s linear;
+}

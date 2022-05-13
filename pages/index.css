@@ -1,0 +1,14 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+
+@import url(../blocks/root/root.css);
+
+@import url(../blocks/game-area/game-area.css);
+@import url(../blocks/game-area/__form/game-area__form.css);
+@import url(../blocks/game-area/__fieldset/game-area__fieldset.css);
+@import url(../blocks/game-area/__cell/game-area__cell.css);
+@import url(../blocks/game-area/__cell/_highlight/game-area__cell_highlight.css);
+@import url(../blocks/game-area/__cell/_active/game-area__cell_active.css);
+@import url(../blocks/game-area/__cell/_select/game-area__cell_select.css);
+@import url(../blocks/game-area/__control-wrapper/game-area__control-wrapper.css);
+@import url(../blocks/game-area/__control-button/game-area__control-button.css);
