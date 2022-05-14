@@ -68,28 +68,29 @@ function checkCells(currentCell) {
     ]
 
     moveOption.forEach(function (cell) {
-
+ 
         const cellID = `${cell.column},${cell.row}`;
         let cellArray = document.getElementById(cellID);
 
-        if (cellArray && !cellArray.classList.contains("game-area__cell_select")) {
+        if (cellArray && !cellArray.classList.contains("game-area__cell_active") && !cellArray.classList.contains("game-area__cell_select"))  {
+            console.log(cellArray.classList);
             cellArray.disabled = false;
             cellArray.classList.add("game-area__cell_highlight");
-            countPossibleMoves++;
+            countPossibleMoves++;       
         } 
         
         if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter -1) {
             cellArray.classList.remove("game-area__cell_highlight");
             cellArray.classList.remove("game-area__cell_active");
-            cellArray.classList.add("game-area__cell_select")
+            cellArray.classList.add("game-area__cell_select");
+            cellArray.disabled = true;
         }
     })
 
-    checkState(countPossibleMoves);
+    checkState(countPossibleMoves, moveCounter);
 }
 
-function checkState(countPossibleMoves) {
-
+function checkState(countPossibleMoves, moveCounter) {
     if (countPossibleMoves === 0) {
         alert("Вы проиграли");
     } else if (moveCounter === 100) {
