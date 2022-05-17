@@ -1,5 +1,5 @@
 .game-area__cell_select {
-    color: #fff;
-    background-color: rgb(135, 170, 208);
+    background-color: var(--cell-select);
+    border: none;
     pointer-events: none;
 }

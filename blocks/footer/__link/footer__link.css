@@ -1,0 +1,6 @@
+.footer__link {
+    color: var(--text-color);
+    font-size: 14px;
+    text-decoration: none;
+    text-transform: uppercase;
+}

@@ -1,0 +1,5 @@
+.game-area__heading {
+    color: var(--text-color);
+    font-size: 30px;
+    margin: 25px auto 25px 0;
+}

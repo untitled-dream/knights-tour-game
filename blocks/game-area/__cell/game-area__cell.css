@@ -1,6 +1,7 @@
 .game-area__cell {
     background-color: transparent;
-    border: none;
+    border: .25px solid rgba(200, 200, 200, 0.1);
+    color: #fff;
     font-size: 25px;
     height: 10%;
     width: 10%;

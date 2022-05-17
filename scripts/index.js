@@ -13,12 +13,18 @@ function fillGameField() {
     }
 }
 
+function clearGameField() {
+    const fieldsetCells = document.querySelectorAll(".game-area__cell");
+    fieldsetCells.forEach((cell) => cell.remove());
+}
+
 function getCell(axisX, axisY) {
     const cellElement = document.querySelector("#cell-template").content.cloneNode(true);
     
     const cell = cellElement.querySelector(".game-area__cell");
 
     cell.id = `${axisX},${axisY}`;
+    cell.classList.add("game-area__cell_highlight")
     cell.addEventListener("click", handleClick);
 
     return cellElement;
@@ -52,7 +58,6 @@ function setDisabled() {
 
 function checkCells(currentCell) {
     let countPossibleMoves = 0;
-
     let currentRow = parseInt(currentCell.id.split(",")[1]);
     let currentColumn = parseInt(currentCell.id.split(",")[0]);
 
@@ -73,7 +78,6 @@ function checkCells(currentCell) {
         let cellArray = document.getElementById(cellID);
 
         if (cellArray && !cellArray.classList.contains("game-area__cell_active") && !cellArray.classList.contains("game-area__cell_select"))  {
-            console.log(cellArray.classList);
             cellArray.disabled = false;
             cellArray.classList.add("game-area__cell_highlight");
             countPossibleMoves++;       
@@ -104,10 +108,5 @@ resetGameFieldButton.addEventListener("click", () => {
     clearGameField();
     fillGameField();
 });
-
-function clearGameField() {
-    const fieldsetCells = document.querySelectorAll(".game-area__cell");
-    fieldsetCells.forEach((e) => e.remove())
-}
 
 fillGameField();
