@@ -4,9 +4,3 @@
     align-items: center;
     padding: 50% 0 0;
 }
-
-@media screen and (max-width: 600px) {
-    .game-area {
-        max-width: 300px;
-    }
-}
