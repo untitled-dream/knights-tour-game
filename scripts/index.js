@@ -1,5 +1,11 @@
 let moveCounter = 1;
 
+const messageText = { 
+    winMessage: "Congrats! You Won!", 
+    loseMessage: "Sorry! You Lose!"
+}
+
+
 const gameFieldForm = document.forms["game-feild"];
 const gameFieldSet = document.querySelector(".game-area__fieldset");
 const resetGameFieldButton = document.querySelector("#reset");
@@ -25,6 +31,7 @@ function getCell(axisX, axisY) {
 
     cell.id = `${axisX},${axisY}`;
     cell.classList.add("game-area__cell_highlight")
+    
     cell.addEventListener("click", handleClick);
 
     return cellElement;
@@ -58,6 +65,7 @@ function setDisabled() {
 
 function checkCells(currentCell) {
     let countPossibleMoves = 0;
+
     let currentRow = parseInt(currentCell.id.split(",")[1]);
     let currentColumn = parseInt(currentCell.id.split(",")[0]);
 
@@ -83,11 +91,11 @@ function checkCells(currentCell) {
             countPossibleMoves++;       
         } 
         
-        if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter -1) {
+        if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter - 1) {
+            cellArray.disabled = true;
+            cellArray.classList.add("game-area__cell_select");
             cellArray.classList.remove("game-area__cell_highlight");
             cellArray.classList.remove("game-area__cell_active");
-            cellArray.classList.add("game-area__cell_select");
-            cellArray.disabled = true;
         }
     })
 
@@ -109,4 +117,5 @@ resetGameFieldButton.addEventListener("click", () => {
     fillGameField();
 });
 
+document.querySelector(".popup").classList.add("popup_opened");
 fillGameField();

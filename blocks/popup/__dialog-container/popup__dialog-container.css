@@ -1,0 +1,7 @@
+.popup__dialog-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 0 0 20px;
+    width: 100%;
+}

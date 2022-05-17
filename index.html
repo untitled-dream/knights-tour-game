@@ -18,12 +18,22 @@
       </fieldset>
     </form>
     <div class="game-area__control-wrapper">
-      <button class="game-area__control-button" name="reset" id="reset">Reset</button>
+      <button class="game-area__control-button button" name="reset" id="reset">Reset</button>
     </div>
   </section>
   <section class="footer">
     <a class="footer__link" href="https://github.com/untitled-dream" target="_blank" rel="noopener noreferrer">© 2022. untitled-dream</a>
   </section>
+  <div class="popup">
+    <div class="popup__container">
+      <p class="popup__message">You Win!</p>
+      <div class="popup__dialog-container">
+        <button class="popup__dialog-button button">Play again</button>
+        <button class="popup__dialog-button button">Cancel</button>
+      </div>
+      <button class="popup__close-button"></button>
+    </div>
+  </div>
   <template id="cell-template">
     <button class="game-area__cell" id=""></button>
   </template>
