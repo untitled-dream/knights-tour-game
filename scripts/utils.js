@@ -1,4 +1,4 @@
-const gameResultPopup = document.querySelector("#game-result-popup");
+export const gameResultPopup = document.querySelector("#game-result-popup");
 const popupMessage = document.querySelector(".popup__message");
 
 export function openGameResultPopup(message) {
@@ -10,12 +10,12 @@ export function openGameResultPopup(message) {
 }
 
 function setEventListener() {
-    gameResultPopup.addEventListener("mousedown", handleOverlayClose);
     document.addEventListener("keydown", handleModalEscapePress);
+    gameResultPopup.addEventListener("mousedown", handleOverlayClose);
 }
 
-function closeGameResultPopup(popup) {
-    popup.classList.remove("popup_opened");
+export function closeGameResultPopup() {
+    gameResultPopup.classList.remove("popup_opened");
 
     document.removeEventListener("keydown", handleModalEscapePress);
 }
@@ -24,14 +24,16 @@ function handleOverlayClose(evt) {
     const popupClosedByBackdrop = evt.target;
 
     if (popupClosedByBackdrop.classList.contains("popup_opened")) {
-        closeGameResultPopup(popupClosedByBackdrop);
+        closeGameResultPopup();
     }
 }
 
 function handleModalEscapePress(evt) {
     if (evt.key === "Escape") {
-        closeGameResultPopup(gameResultPopup)
+        closeGameResultPopup();
     }
 }
 
-document.querySelector(".popup__close-button").addEventListener("click", () => closeGameResultPopup(gameResultPopup));
+document.querySelectorAll("#close").forEach(closeButton => 
+    closeButton.addEventListener("click", () => closeGameResultPopup())
+);

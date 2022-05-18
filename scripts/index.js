@@ -1,4 +1,4 @@
-import { openGameResultPopup } from "./utils.js" 
+import { gameResultPopup, openGameResultPopup, closeGameResultPopup } from "./utils.js" 
 
 let moveCounter = 1;
 const messageText = { 
@@ -6,9 +6,8 @@ const messageText = {
 }
 
 const gameFieldSet = document.querySelector(".game-area__fieldset");
-const resetGameFieldButton = document.querySelector("#reset");
 
-function fillGameField() {
+function createGameField() {
     for (let y = 1; y <= 10; y++) {
         for (let x = 1; x <= 10; x++) {
             const gameElement = getElement(x, y);
@@ -23,7 +22,7 @@ function getElement(axisX, axisY) {
     const cell = elementTemplate.querySelector(".game-area__cell");
 
     cell.id = `${axisX},${axisY}`;
-    cell.classList.add("game-area__cell_highlight")
+    cell.classList.add("game-area__cell_highlight");
     
     cell.addEventListener("click", handleClick);
 
@@ -105,12 +104,19 @@ function checkGameState(countPossibleMoves, moveCounter) {
     }
 }
 
-resetGameFieldButton.addEventListener("click", () => {
+document.querySelectorAll("#reset").forEach(resetButton =>
+    resetButton.addEventListener("click", () => resetGame())
+);
+
+function resetGame() {
     moveCounter = 1;
 
+    if (gameResultPopup.classList.contains("popup_opened")) {
+        closeGameResultPopup();
+    }
+
     clearGameField();
-    fillGameField();
-});
+    createGameField();
+}
 
-
-fillGameField();
+createGameField();
