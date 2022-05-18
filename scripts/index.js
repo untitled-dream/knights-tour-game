@@ -2,7 +2,6 @@ import { openGameResultPopup } from "./utils.js"
 
 let moveCounter = 1;
 const cellIDSeparator = ",";
-
 const messageText = { 
     winMessage: "Congrats! You Won!", loseMessage: "Sorry! You Lose!"
 }
@@ -13,27 +12,27 @@ const resetGameFieldButton = document.querySelector("#reset");
 function fillGameField() {
     for (let y = 1; y <= 10; y++) {
         for (let x = 1; x <= 10; x++) {
-            const cellElement = getCell(x, y);
-            renderCells(cellElement);
+            const gameElement = getElement(x, y);
+            renderElement(gameElement);
         }
     }
 }
 
-function getCell(axisX, axisY) {
-    const cellElement = document.querySelector("#cell-template").content.cloneNode(true);
+function getElement(axisX, axisY) {
+    const elementTemplate = document.querySelector("#cell-template").content.cloneNode(true);
     
-    const cell = cellElement.querySelector(".game-area__cell");
+    const cell = elementTemplate.querySelector(".game-area__cell");
 
     cell.id = `${axisX}${cellIDSeparator}${axisY}`;
     cell.classList.add("game-area__cell_highlight")
     
     cell.addEventListener("click", handleClick);
 
-    return cellElement;
+    return elementTemplate;
 }
 
-function renderCells(cellElement) {
-    gameFieldSet.append(cellElement);
+function renderElement(gameElement) {
+    gameFieldSet.append(gameElement);
 }
 
 function handleClick(evt) {
@@ -42,7 +41,7 @@ function handleClick(evt) {
     const currentCell = evt.target;
 
     setDisabled();
-    checkCells(currentCell);
+    checkCells(currentCell.id);
 
     currentCell.textContent = moveCounter;
     currentCell.classList.add("game-area__cell_active");
@@ -55,7 +54,7 @@ function setDisabled() {
     activeCells.forEach(function(cell) {
         cell.classList.remove("game-area__cell_highlight");
         cell.disabled = true;
-    })
+    });
 }
 
 function clearGameField() {
@@ -63,46 +62,43 @@ function clearGameField() {
     fieldsetCells.forEach((cell) => cell.remove());
 }
 
-function checkCells(currentCell) {
+function checkCells(id) {
     let countPossibleMoves = 0;
 
-    let currentRow = parseInt(currentCell.id.split(cellIDSeparator)[1]);
-    let currentColumn = parseInt(currentCell.id.split(cellIDSeparator)[0]);
+    const column = parseInt(id.split(cellIDSeparator)[0]);
+    const row = parseInt(id.split(cellIDSeparator)[1]);
 
-    const moveOption = [
-        { row: currentRow + 1, column: currentColumn - 2 },
-        { row: currentRow + 2, column: currentColumn - 1 },
-        { row: currentRow + 2, column: currentColumn + 1 },
-        { row: currentRow + 1, column: currentColumn + 2 },
-        { row: currentRow - 1, column: currentColumn + 2 },
-        { row: currentRow - 2, column: currentColumn + 1 },
-        { row: currentRow - 2, column: currentColumn - 1 },
-        { row: currentRow - 1, column: currentColumn - 2 },
+    const moveOptionArray = [
+        { column: +2, row: +1 },
+        { column: -2, row: +1 },
+        { column: +1, row: +2 },
+        { column: -1, row: +2 },
+        { column: +2, row: -1 },
+        { column: -2, row: -1 },
+        { column: +1, row: -2 },
+        { column: -1, row: -2 }
     ]
 
-    moveOption.forEach((cell) => {
- 
-        let cellArray = document.getElementById(`${cell.column}${cellIDSeparator}${cell.row}`);
+    moveOptionArray.forEach((offset) => {
 
-        if (cellArray && !cellArray.classList.contains("game-area__cell_active") && !cellArray.classList.contains("game-area__cell_select"))  {
-            cellArray.disabled = false;
-            cellArray.classList.add("game-area__cell_highlight");
-            countPossibleMoves++;
+        const id = `${column + offset.column}${cellIDSeparator}${row + offset.row}`;
+        const moveOption = document.getElementById(id);
+        
+        if (moveOption && moveOption.classList.contains("game-area__cell_active") && moveOption.textContent == moveCounter - 1) {
+            moveOption.classList.add("game-area__cell_select");
+            moveOption.classList.remove("game-area__cell_active");
         } 
-        
-        if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter - 1) {
-            cellArray.disabled = true;
-            cellArray.classList.add("game-area__cell_select");
-            cellArray.classList.remove("game-area__cell_highlight");
-            cellArray.classList.remove("game-area__cell_active");
+
+        if (moveOption && !moveOption.classList.contains("game-area__cell_select"))  {
+            countPossibleMoves++;
+            moveOption.disabled = false;
+            moveOption.classList.add("game-area__cell_highlight");
         }
-        
     })
-    console.log(countPossibleMoves);
-    checkState(countPossibleMoves, moveCounter);
+    checkGameState(countPossibleMoves, moveCounter);
 }
 
-function checkState(countPossibleMoves, moveCounter) {
+function checkGameState(countPossibleMoves, moveCounter) {
     if (countPossibleMoves === 0) {
         openGameResultPopup(messageText.loseMessage);
     } else if (moveCounter === 100) {
@@ -116,5 +112,6 @@ resetGameFieldButton.addEventListener("click", () => {
     clearGameField();
     fillGameField();
 });
+
 
 fillGameField();
