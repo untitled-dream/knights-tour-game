@@ -1,7 +1,6 @@
 import { openGameResultPopup } from "./utils.js" 
 
 let moveCounter = 1;
-const cellIDSeparator = ",";
 const messageText = { 
     winMessage: "Congrats! You Won!", loseMessage: "Sorry! You Lose!"
 }
@@ -23,7 +22,7 @@ function getElement(axisX, axisY) {
     
     const cell = elementTemplate.querySelector(".game-area__cell");
 
-    cell.id = `${axisX}${cellIDSeparator}${axisY}`;
+    cell.id = `${axisX},${axisY}`;
     cell.classList.add("game-area__cell_highlight")
     
     cell.addEventListener("click", handleClick);
@@ -65,8 +64,8 @@ function clearGameField() {
 function checkCells(id) {
     let countPossibleMoves = 0;
 
-    const column = parseInt(id.split(cellIDSeparator)[0]);
-    const row = parseInt(id.split(cellIDSeparator)[1]);
+    const column = parseInt(id.split(",")[0]);
+    const row = parseInt(id.split(",")[1]);
 
     const moveOptionArray = [
         { column: +2, row: +1 },
@@ -81,7 +80,7 @@ function checkCells(id) {
 
     moveOptionArray.forEach((offset) => {
 
-        const id = `${column + offset.column}${cellIDSeparator}${row + offset.row}`;
+        const id = `${column + offset.column},${row + offset.row}`;
         const moveOption = document.getElementById(id);
         
         if (moveOption && moveOption.classList.contains("game-area__cell_active") && moveOption.textContent == moveCounter - 1) {

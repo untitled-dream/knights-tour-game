@@ -6,12 +6,18 @@ export function openGameResultPopup(message) {
 
     popupMessage.textContent = message;
 
+    setEventListener();
+}
+
+function setEventListener() {
     gameResultPopup.addEventListener("mousedown", handleOverlayClose);
     document.addEventListener("keydown", handleModalEscapePress);
 }
 
 function closeGameResultPopup(popup) {
     popup.classList.remove("popup_opened");
+
+    document.removeEventListener("keydown", handleModalEscapePress);
 }
 
 function handleOverlayClose(evt) {

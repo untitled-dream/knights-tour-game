@@ -5,33 +5,53 @@ class GameField {
         this._cellTemplateSelector = cellTemplateSelector;
     }
 
-    _getCellTemplate() {
-        const cellTemplate = document.querySelector(this._cellTemplateSelector).content.cloneNode(true);
-        return cellTemplate;
+    _getElementTemplate() {
+        return document.querySelector(this._cellTemplateSelector).content.cloneNode(true);;
     }
 
-    _getCell(x, y) {
-        this._cell = this._getCellTemplate();
+    _getElement(x,y) {
+        this._element = this._getCellTemplate();
 
-        const cell = this._cell.querySelector(".game-area__cell");
+        const cell = this._element.querySelector(".game-area__cell");
+        
         cell.id = `${x},${y}`;
+        cell.classList.add("game-area__cell_highlight");
+        this._setEventListener(cell);
 
-        this._setEventListeners(cell);
-
-        return this._cell;
+        return this._element;
     }
 
     createGameField() {
         for (let y = 1; y <= 10; y++) {
-                for (let x = 1; x <= 10; x++) {
-                const newCell = this._getCell(x, y);
-                this.renderCell(newCell);
+            for (let x = 1; x <= 10; x++) {
+                const gameElement = this._getElement(x,y);
+                this._renderElement(gameElement);
             }
         }
     }
 
-    renderCell(cellElement) {
-        gameField.append(cellElement);
+    _renderElement(gameElement) {
+        gameField.append(gameElement);
+    }
+
+    _setEventListener = (cell) => {
+        cell.addEventListener("click", (evt) => {
+            this._handleClick(evt);
+        });
+    }
+
+    _handleClick(evt) {
+        evt.preventDefault();
+
+        const currentCell = evt.target;
+
+        setDisabled();
+        checkCells(currentCell.id);
+
+        currentCell.textContent = moveCounter;
+        currentCell.classList.add("game-area__cell_active");
+
+        moveCounter++;
     }
 }
 
