@@ -1,11 +1,10 @@
 import { openGameResultPopup } from "./utils.js" 
 
 let moveCounter = 1;
-const cellIDSeparator = ","; // 
+const cellIDSeparator = ",";
 
 const messageText = { 
-    winMessage: "Congrats! You Won!", 
-    loseMessage: "Sorry! You Lose!"
+    winMessage: "Congrats! You Won!", loseMessage: "Sorry! You Lose!"
 }
 
 const gameFieldSet = document.querySelector(".game-area__fieldset");
@@ -18,11 +17,6 @@ function fillGameField() {
             renderCells(cellElement);
         }
     }
-}
-
-function clearGameField() {
-    const fieldsetCells = document.querySelectorAll(".game-area__cell");
-    fieldsetCells.forEach((cell) => cell.remove());
 }
 
 function getCell(axisX, axisY) {
@@ -50,7 +44,6 @@ function handleClick(evt) {
     setDisabled();
     checkCells(currentCell);
 
-    currentCell.disabled = true;
     currentCell.textContent = moveCounter;
     currentCell.classList.add("game-area__cell_active");
 
@@ -63,6 +56,11 @@ function setDisabled() {
         cell.classList.remove("game-area__cell_highlight");
         cell.disabled = true;
     })
+}
+
+function clearGameField() {
+    const fieldsetCells = document.querySelectorAll(".game-area__cell");
+    fieldsetCells.forEach((cell) => cell.remove());
 }
 
 function checkCells(currentCell) {
@@ -84,7 +82,7 @@ function checkCells(currentCell) {
 
     moveOption.forEach((cell) => {
  
-        let cellArray = document.getElementById(`${cell.column},${cell.row}`);
+        let cellArray = document.getElementById(`${cell.column}${cellIDSeparator}${cell.row}`);
 
         if (cellArray && !cellArray.classList.contains("game-area__cell_active") && !cellArray.classList.contains("game-area__cell_select"))  {
             cellArray.disabled = false;
@@ -99,7 +97,8 @@ function checkCells(currentCell) {
             cellArray.classList.remove("game-area__cell_active");
         }
         
-    })    
+    })
+    console.log(countPossibleMoves);
     checkState(countPossibleMoves, moveCounter);
 }
 
