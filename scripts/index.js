@@ -1,19 +1,20 @@
+import { openGameResultPopup } from "./utils.js" 
+
 let moveCounter = 1;
+const cellIDSeparator = ","; // 
 
 const messageText = { 
     winMessage: "Congrats! You Won!", 
     loseMessage: "Sorry! You Lose!"
 }
 
-
-const gameFieldForm = document.forms["game-feild"];
 const gameFieldSet = document.querySelector(".game-area__fieldset");
 const resetGameFieldButton = document.querySelector("#reset");
 
 function fillGameField() {
-    for (y = 1; y <= 10; y++) {
-        for (x = 1; x <= 10; x++) {
-            const cellElement = getCell(axisX = x, axisY = y);
+    for (let y = 1; y <= 10; y++) {
+        for (let x = 1; x <= 10; x++) {
+            const cellElement = getCell(x, y);
             renderCells(cellElement);
         }
     }
@@ -29,7 +30,7 @@ function getCell(axisX, axisY) {
     
     const cell = cellElement.querySelector(".game-area__cell");
 
-    cell.id = `${axisX},${axisY}`;
+    cell.id = `${axisX}${cellIDSeparator}${axisY}`;
     cell.classList.add("game-area__cell_highlight")
     
     cell.addEventListener("click", handleClick);
@@ -49,9 +50,10 @@ function handleClick(evt) {
     setDisabled();
     checkCells(currentCell);
 
-    currentCell.textContent = moveCounter;
     currentCell.disabled = true;
+    currentCell.textContent = moveCounter;
     currentCell.classList.add("game-area__cell_active");
+
     moveCounter++;
 }
 
@@ -66,8 +68,8 @@ function setDisabled() {
 function checkCells(currentCell) {
     let countPossibleMoves = 0;
 
-    let currentRow = parseInt(currentCell.id.split(",")[1]);
-    let currentColumn = parseInt(currentCell.id.split(",")[0]);
+    let currentRow = parseInt(currentCell.id.split(cellIDSeparator)[1]);
+    let currentColumn = parseInt(currentCell.id.split(cellIDSeparator)[0]);
 
     const moveOption = [
         { row: currentRow + 1, column: currentColumn - 2 },
@@ -80,15 +82,14 @@ function checkCells(currentCell) {
         { row: currentRow - 1, column: currentColumn - 2 },
     ]
 
-    moveOption.forEach(function (cell) {
+    moveOption.forEach((cell) => {
  
-        const cellID = `${cell.column},${cell.row}`;
-        let cellArray = document.getElementById(cellID);
+        let cellArray = document.getElementById(`${cell.column},${cell.row}`);
 
         if (cellArray && !cellArray.classList.contains("game-area__cell_active") && !cellArray.classList.contains("game-area__cell_select"))  {
             cellArray.disabled = false;
             cellArray.classList.add("game-area__cell_highlight");
-            countPossibleMoves++;       
+            countPossibleMoves++;
         } 
         
         if (cellArray && cellArray.classList.contains("game-area__cell_active") && cellArray.textContent == moveCounter - 1) {
@@ -97,16 +98,16 @@ function checkCells(currentCell) {
             cellArray.classList.remove("game-area__cell_highlight");
             cellArray.classList.remove("game-area__cell_active");
         }
-    })
-
+        
+    })    
     checkState(countPossibleMoves, moveCounter);
 }
 
 function checkState(countPossibleMoves, moveCounter) {
     if (countPossibleMoves === 0) {
-        alert("Вы проиграли");
+        openGameResultPopup(messageText.loseMessage);
     } else if (moveCounter === 100) {
-        alert("Вы победили!")
+        openGameResultPopup(messageText.winMessage);
     }
 }
 
@@ -117,5 +118,4 @@ resetGameFieldButton.addEventListener("click", () => {
     fillGameField();
 });
 
-document.querySelector(".popup").classList.add("popup_opened");
 fillGameField();

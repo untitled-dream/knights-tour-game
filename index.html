@@ -13,10 +13,9 @@
 <body class="root">
   <section class="game-area">
     <h1 class="game-area__heading">Knight's Tour Game</h1>
-    <form class="game-area__form" id="game-feild">
-      <fieldset class="game-area__fieldset">
-      </fieldset>
-    </form>
+    <div class="game-area__fieldset">
+      <!-- Cells Insert -->
+    </div>
     <div class="game-area__control-wrapper">
       <button class="game-area__control-button button" name="reset" id="reset">Reset</button>
     </div>
@@ -24,9 +23,9 @@
   <section class="footer">
     <a class="footer__link" href="https://github.com/untitled-dream" target="_blank" rel="noopener noreferrer">© 2022. untitled-dream</a>
   </section>
-  <div class="popup">
+  <div class="popup" id="game-result-popup">
     <div class="popup__container">
-      <p class="popup__message">You Win!</p>
+      <p class="popup__message"></p>
       <div class="popup__dialog-container">
         <button class="popup__dialog-button button">Play again</button>
         <button class="popup__dialog-button button">Cancel</button>
@@ -37,7 +36,8 @@
   <template id="cell-template">
     <button class="game-area__cell" id=""></button>
   </template>
-  <script src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/index.js"></script>
+  <script type="module" src="./scripts/utils.js"></script>
   <!--<script type="module" src="./scripts/GameField.js"></script>
   <script type="module" src="./scripts/variables.js"></script>-->
 </body>

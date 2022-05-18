@@ -7,7 +7,6 @@
 
 @import url(../blocks/game-area/game-area.css);
 @import url(../blocks/game-area/__heading/game-area__heading.css);
-@import url(../blocks/game-area/__form/game-area__form.css);
 @import url(../blocks/game-area/__fieldset/game-area__fieldset.css);
 @import url(../blocks/game-area/__cell/game-area__cell.css);
 @import url(../blocks/game-area/__cell/_highlight/game-area__cell_highlight.css);

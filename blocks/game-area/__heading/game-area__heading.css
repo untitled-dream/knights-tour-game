@@ -1,5 +1,12 @@
 .game-area__heading {
     color: var(--text-color);
     font-size: 30px;
-    margin: 25px auto 25px 0;
+    width: 100%;
+    text-align: left;
+}
+
+@media screen and (max-width: 600px) {
+    .game-area__heading {
+        width: 300px;
+    }
 }
