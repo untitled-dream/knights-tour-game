@@ -16,6 +16,7 @@
 @import url(../blocks/game-area/__control-button/game-area__control-button.css);
 
 @import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/footer/__link/footer__link.css);
 
 @import url(../blocks/popup/popup.css);
