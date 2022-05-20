@@ -1,0 +1,9 @@
+.footer__social-list {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    line-height: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}

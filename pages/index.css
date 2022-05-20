@@ -17,7 +17,11 @@
 
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
-@import url(../blocks/footer/__link/footer__link.css);
+@import url(../blocks/footer/__copyright-link/footer__copyright-link.css);
+@import url(../blocks/footer/__social-list/footer__social-list.css);
+@import url(../blocks/footer/__social-item/footer__social-item.css);
+@import url(../blocks/footer/__social-link/footer__social-link.css);
+@import url(../blocks/footer/__social-image/footer__social-image.css);
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_opened/popup_opened.css);
