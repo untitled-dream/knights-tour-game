@@ -1,0 +1,16 @@
+.game-area__control-reset_active {
+    animation: pulse 1.5s infinite;
+    border: 1px solid rgb(225, 48, 32); 
+    background-color: rgb(225, 48, 32);
+    box-shadow: 0 0 0 0 rgba(255, 214, 214, 1);
+}
+
+@keyframes pulse {
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 214, 214, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 214, 214, 0);
+    }
+}

@@ -1,0 +1,11 @@
+.game-area__control-reset {
+    border: 1px solid rgb(93, 125, 163);
+    background-color: rgb(93, 125, 163);
+    margin: 0;
+    transition: .25s;
+}
+
+.game-area__control-reset:hover {
+    background-color: rgb(62, 86, 124);
+    transition: .25s;
+}

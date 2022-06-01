@@ -1,9 +1,14 @@
-import { gameResultPopup, openGameResultPopup, closeGameResultPopup } from "./utils.js" 
+
+import GameResultPopup from "./GameResultPopup.js"
+import { gameResultPopupSelector, gameResultsMessage } from "./constants.js"
+
+/* -------------------------------- */
+
+const resultPopup = new GameResultPopup(gameResultPopupSelector);
+resultPopup.setEventListener();
+/* -------------------------------- */
 
 let moveCounter = 1;
-const messageText = { 
-    winMessage: "Congrats! You Won!", loseMessage: "Sorry! You Lose!"
-}
 
 const gameFieldSet = document.querySelector(".game-area__fieldset");
 
@@ -98,25 +103,10 @@ function checkCells(id) {
 
 function checkGameState(countPossibleMoves, moveCounter) {
     if (countPossibleMoves === 0) {
-        openGameResultPopup(messageText.loseMessage);
+        resultPopup.open(gameResultsMessage.loseMessage)
     } else if (moveCounter === 100) {
-        openGameResultPopup(messageText.winMessage);
+        resultPopup.open(gameResultsMessage.winMessage)
     }
-}
-
-document.querySelectorAll("#reset").forEach(resetButton =>
-    resetButton.addEventListener("click", () => resetGame())
-);
-
-function resetGame() {
-    moveCounter = 1;
-
-    if (gameResultPopup.classList.contains("popup_opened")) {
-        closeGameResultPopup();
-    }
-
-    clearGameField();
-    createGameField();
 }
 
 createGameField();

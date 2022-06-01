@@ -1,4 +1,4 @@
-import { gameField } from "./variables.js"
+import { gameField, resetButton } from "./constants.js"
 
 class GameField {
     constructor(cellTemplateSelector) {

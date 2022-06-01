@@ -16,7 +16,7 @@
     <!-- Cells Insert -->
     <div class="game-area__fieldset"></div>
     <div class="game-area__control-wrapper">
-      <button class="game-area__control-button button" id="reset" name="reset">Reset</button>
+      <button class="button game-area__control-reset" id="reset" name="reset">Reset</button>
     </div>
   </section>
   <section class="footer">
@@ -39,14 +39,13 @@
       </li>
     </ul>
   </section>
-  <div class="popup" id="game-result-popup"> <!-- Game Result Popup -->
+  <div class="popup popup_opened" id="game-result-popup"> <!-- Game Result Popup -->
     <div class="popup__container">
       <p class="popup__message"></p>
       <div class="popup__dialog-container">
         <button class="popup__dialog-button button" id="reset">Play again</button>
         <button class="popup__dialog-button button" id="close">Cancel</button>
       </div>
-      <button class="popup__close-button" id="close"></button>
     </div>
   </div>
   <!-- Cell Template -->
@@ -54,6 +53,9 @@
     <button class="game-area__cell" id=""></button>
   </template>
   <script type="module" src="./scripts/index.js"></script>
-  <script type="module" src="./scripts/utils.js"></script>
+  <script type="module" src="./scripts/Popup.js"></script>
+  <script type="module" src="./scripts/GameResultPopup.js"></script>
+  <!-- <script type="module" src="./scripts/utils.js"></script> -->
+  <script type="module" src="./scripts/constants.js"></script>
 </body>
 </html>
