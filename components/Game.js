@@ -99,7 +99,6 @@ export default class Game {
         moveOption.classList.add('game-area__cell_highlight');
       }
     })
-    console.log(countPossibleMoves);
     this._checkGameState(countPossibleMoves, this._moveCounter);
   }
 
