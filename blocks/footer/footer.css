@@ -1,8 +1,15 @@
 .footer {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px 0;
-    text-align: right;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  justify-content: space-between;
+  padding: 0 0 20px;
+  text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+  }
 }

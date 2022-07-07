@@ -1,8 +1,8 @@
 .game-area__cell_highlight {
     color: #fff;
-    background-color: var(--cell-highlight);
+    background-color: var(--color-cell-highlight);
 }
 
 .game-area__cell_highlight:hover {
-    background-color: var(--cell-active);
+    background-color: var(--color-cell-active);
 }

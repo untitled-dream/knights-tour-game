@@ -1,5 +1,16 @@
 .footer__copyright-link {
-    color: inherit;
+    color: var(--color-text);
     text-decoration: none;
     text-transform: uppercase;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    letter-spacing: 2px;
+    transition: background-size .4s;
+    width: fit-content;
+}
+
+.footer__copyright-link:hover {
+    background-size: 100% 1px;
 }

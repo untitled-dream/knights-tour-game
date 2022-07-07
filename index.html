@@ -1,61 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=320, width=device-width, initial-scale=1.0">
-  <meta name="author" content="Smirnov Andrey">
-  <meta name="description" content="Knight's Tour">
-  <meta name="keywords" content="Game, Knight's Tour, JavaScript">
-  <link rel="stylesheet" href="./pages/index.css">
-  <link rel="shortcut icon" href="./images/knights-tour-game_favicon.svg">
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=320, width=device-width, initial-scale=1.0'>
+  <meta name='author' content='Smirnov Andrey'>
+  <meta name='description' content='Knight' s Tour'>
+  <meta name='keywords' content='Game, Knight' s Tour, JavaScript'>
+  <link rel='stylesheet' href='./pages/index.css'>
+  <link rel='shortcut icon' href='./images/knights-tour-game_favicon.svg'>
   <title>Knight's Tour Game</title>
 </head>
-<body class="root">
-  <section class="game-area">
-    <h1 class="game-area__heading">Knight's Tour Game</h1>
-    <!-- Cells Insert -->
-    <div class="game-area__fieldset"></div>
-    <div class="game-area__control-wrapper">
-      <button class="button game-area__control-reset" id="reset" name="reset">Reset</button>
-    </div>
+
+<body class='root'>
+  <section class='game-area'>
+    <h1 class='game-area__heading'>Knight's Tour Game</h1>
+    <div class='game-area__fieldset'></div>
+    <button class='button game-area__control-reset' id="reset">Reset</button>
+    </form>
+
   </section>
-  <section class="footer">
-    <span class="footer__copyright">© 2022.<a class="footer__copyright-link" href="https://github.com/untitled-dream" target="_blank" rel="noopener noreferrer">&nbsp;untitled-dream</a></span>
-    <ul class="footer__social-list">
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="https://github.com/untitled-dream" target="_blank" rel="noopener noreferrer">
-          <img class="footer__social-image" src="./images/social-github.svg" alt="GitHub">
-        </a>
-      </li>
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="https://vk.com/unt1tled_dream" target="_blank" rel="noopener noreferrer">
-          <img class="footer__social-image" src="./images/social-vk.svg" alt="VK">
-        </a>
-      </li>
-      <li class="footer__social-item">
-        <a class="footer__social-link" href="https://t.me/untitled_dream" target="_blank" rel="noopener noreferrer">
-          <img class="footer__social-image" src="./images/social-telegram.svg" alt="Telegram">
-        </a>
-      </li>
-    </ul>
+  <section class='footer'>
+    <p class='footer__copyright'>© 2022</p>
+    <a class='footer__copyright-link' href='https://github.com/untitled-dream' target='_blank'
+      rel='noopener noreferrer'>untitled-dream</a>
+
   </section>
-  <div class="popup popup_opened" id="game-result-popup"> <!-- Game Result Popup -->
-    <div class="popup__container">
-      <p class="popup__message"></p>
-      <div class="popup__dialog-container">
-        <button class="popup__dialog-button button" id="reset">Play again</button>
-        <button class="popup__dialog-button button" id="close">Cancel</button>
-      </div>
-    </div>
-  </div>
-  <!-- Cell Template -->
-  <template id="cell-template">
-    <button class="game-area__cell" id=""></button>
+  <template id='cell-template'>
+    <button class='game-area__cell' type="button" id=''></button>
   </template>
-  <script type="module" src="./scripts/index.js"></script>
-  <script type="module" src="./scripts/Popup.js"></script>
-  <script type="module" src="./scripts/GameResultPopup.js"></script>
-  <!-- <script type="module" src="./scripts/utils.js"></script> -->
-  <script type="module" src="./scripts/constants.js"></script>
+  <script type='module' src='./pages/index.js'></script>
+  <script type='module' src='./utils/constants.js'></script>
+  <script type='module' src='./components/Game.js'></script>
 </body>
+
 </html>

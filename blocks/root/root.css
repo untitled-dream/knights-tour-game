@@ -1,23 +1,32 @@
 .root {
-    font-family: Inter, "Arial";
-    min-width: 320px;
-    max-width: 500px;
-    height: 100vh;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    user-select: none;
+  --color-bg: #181818;
+  --color-bg-variant: #4E5860;
+  --color-text: #ffffff;
+  --color-text-variant: #3F3F3F;
+  --color-cell-active: #F8B363;
+  --color-cell-select: #D17B69;
+  --color-cell-highlight: #8F5564;
 
-    --cell-active: rgb(93, 125, 163);
-    --cell-select: rgb(135, 170, 208);
-    --cell-highlight: rgba(178, 214, 248, .25);
+  background-color: var(--color-bg);
+  display: flex;
+  font-family: 'Proba Pro', 'Arial';
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+  margin: 0 auto;
+  min-width: 320px;
+  max-width: 500px;
+  user-select: none;
 
-    --text-color: #2a2c2f;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  
 }
 
 @media screen and (max-width: 600px) {
-    .root {
-        max-width: 300px;
-    }
+  .root {
+    max-width: 300px;
+  }
 }

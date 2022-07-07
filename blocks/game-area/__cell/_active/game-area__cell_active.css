@@ -1,5 +1,5 @@
 .game-area__cell_active {
-    background-color: var(--cell-active);
+    background-color: var(--color-cell-active);
     border: none;
     pointer-events: none;
 }
