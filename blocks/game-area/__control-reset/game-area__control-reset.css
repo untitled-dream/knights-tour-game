@@ -8,6 +8,6 @@
 }
 
 .game-area__control-reset:hover {
-    background-color: #535353;
+    background-color: var(--color-cell-select);
     transition: background-color .25s;
 }

@@ -1,11 +1,11 @@
 .root {
-  --color-bg: #181818;
-  --color-bg-variant: #4E5860;
+  --color-bg: #2a3950;
+  --color-bg-variant: #41436a;
   --color-text: #ffffff;
-  --color-text-variant: #3F3F3F;
-  --color-cell-active: #F8B363;
-  --color-cell-select: #D17B69;
-  --color-cell-highlight: #8F5564;
+  --color-text-variant: #974063;
+  --color-cell-active: #ff9678;
+  --color-cell-select: #f54768;
+  --color-cell-highlight: #974063;
 
   background-color: var(--color-bg);
   display: flex;
