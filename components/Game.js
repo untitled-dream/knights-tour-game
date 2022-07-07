@@ -29,6 +29,10 @@ export default class Game {
     }
   }
 
+  _renderElement(gameElement) {
+    this._gameFieldSet.append(gameElement);
+  }
+
   resetGameField() {
     this._moveCounter = 1;
     document.querySelectorAll('.game-area__cell').forEach(cell => {
@@ -38,10 +42,6 @@ export default class Game {
       cell.classList.remove('game-area__cell_active');
       cell.classList.remove('game-area__cell_highlight');
     });
-  }
-
-  _renderElement(gameElement) {
-    this._gameFieldSet.append(gameElement);
   }
 
   _setEventListener() {
@@ -99,10 +99,10 @@ export default class Game {
         moveOption.classList.add('game-area__cell_highlight');
       }
     })
-    this._checkGameState(countPossibleMoves, this._moveCounter);
+    this._checkState(countPossibleMoves, this._moveCounter);
   }
 
-  _checkGameState(countPossibleMoves, movemoveCounter) {
+  _checkState(countPossibleMoves, movemoveCounter) {
     if (countPossibleMoves === 0) {
       this._displayResult(gameResultsMessage.loseMessage);
     } else if (movemoveCounter === 100) {
@@ -112,12 +112,12 @@ export default class Game {
 
   _displayResult(message) {
     this.resetGameField();
-    const messageArray = message.split(' ');
+    const messageCharArray = message.split(' ');
 
-    for (let i = 0; i < messageArray.length; i++) {
-      const position = this._getRandomRandom(i, messageArray[i].length);
-      for (let y = 0; y < messageArray[i].length; y++) {
-        document.getElementById(`${position.x + y},${position.y}`).textContent = messageArray[i].charAt(y);
+    for (let i = 0; i < messageCharArray.length; i++) {
+      const position = this._getRandomRandom(i, messageCharArray[i].length);
+      for (let y = 0; y < messageCharArray[i].length; y++) {
+        document.getElementById(`${position.x + y},${position.y}`).textContent = messageCharArray[i].charAt(y);
       }
     }
     this._setDisabled();
@@ -126,7 +126,7 @@ export default class Game {
   _getRandomRandom(elementNumber, elementLenght) {
     return {
       x: Math.floor(1 + Math.random() * (10 - elementLenght + 1)),
-      y: Math.floor((elementNumber * 2 + 1) + Math.random() * (1 + (elementNumber * 2 + 2) - (elementNumber * 2 + 1)))
+      y: Math.floor((elementNumber*2 + 1) + Math.random() * (1 + (elementNumber*2 + 2) - (elementNumber*2 + 1)))
     }
   }
 }
