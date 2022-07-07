@@ -10,11 +10,11 @@
 * [Contact](#contact)
 
 ## General Information
-> You need to make the longest possible sequence of moves (tour) with a chess knight, visiting each cell only once.
->
-> If you have visited each cell, then you have achieved a full tour. If you have made a complete tour and were able to move from your last position to the starting cell, then you have reached the closed full tour.
->
-> Read more on [Wikipedia](https://en.wikipedia.org/wiki/Knight%27s_tour)
+You need to make the longest possible sequence of moves (tour) with a chess knight, visiting each cell only once.
+
+If you have visited each cell, then you have achieved a full tour. If you have made a complete tour and were able to move from your last position to the starting cell, then you have reached the closed full tour.
+
+Read more on [Wikipedia](https://en.wikipedia.org/wiki/Knight%27s_tour)
 
 ## Technologies Used
 - HTML / CSS
