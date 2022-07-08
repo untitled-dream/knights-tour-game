@@ -1,5 +1,5 @@
 .game-area__fieldset {
-    border: 1px solid var(--color-text-variant);
+    outline: 1px solid var(--color-text-variant);
     display: flex;
     flex-wrap: wrap;
     width: 500px;
