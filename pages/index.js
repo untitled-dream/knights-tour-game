@@ -1,4 +1,4 @@
-import Game from '../components/Game.js';
+import Game from '../components/KnightsTour.js';
 import { gameFormSelector, resetButton } from '../utils/constants.js'
 
 const game = new Game(gameFormSelector);
