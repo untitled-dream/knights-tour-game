@@ -2,10 +2,11 @@
     
     border-radius: 2px;
     color: var(--color-text);
-    display: block;
+    display: table-cell;
 
     padding: 0;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
+    vertical-align: middle;
 }
