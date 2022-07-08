@@ -1,9 +1,7 @@
-import Game from '../components/KnightsTour.js';
+import KnightsTour from '../components/KnightsTour.js';
 import { gameFormSelector, resetButton } from '../utils/constants.js'
 
-const game = new Game(gameFormSelector);
-game.createGameField();
+const knightsTour = new KnightsTour(gameFormSelector);
+knightsTour.createGameField();
 
-resetButton.addEventListener('click', () => {
-  game.resetGameField();
-})
+resetButton.addEventListener('click', () => knightsTour.resetGameField())
