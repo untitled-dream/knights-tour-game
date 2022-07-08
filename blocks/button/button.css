@@ -1,11 +1,9 @@
 .button {
-    font-size: 14px;
-    line-height: 30px;
+    
     border-radius: 2px;
     color: var(--color-text);
     display: block;
-    width: 70px;
-    height: 30px;
+
     padding: 0;
     border: none;
     cursor: pointer;

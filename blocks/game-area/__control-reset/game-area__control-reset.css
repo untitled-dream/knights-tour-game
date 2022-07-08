@@ -1,10 +1,23 @@
 .game-area__control-reset {
-    background-color: var(--color-text-variant);
-    transition: background-color .25s;
-    margin: 25px 0 0;
+  font-size: 18px;
+  line-height: 40px;
+  width: 90px;
+  height: 40px;
+  background-color: var(--color-text-variant);
+  transition: background-color .25s;
+  margin: 25px 0 0;
 }
 
 .game-area__control-reset:hover {
-    background-color: var(--color-cell-select);
-    transition: background-color .25s;
+  background-color: var(--color-cell-select);
+  transition: background-color .25s;
+}
+
+@media screen and (max-width: 600px) {
+  .game-area__control-reset {
+    font-size: 14px;
+    line-height: 30px;
+    width: 70px;
+    height: 30px;
+  }
 }
