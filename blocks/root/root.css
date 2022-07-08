@@ -12,8 +12,11 @@
   font-family: 'Proba Pro', 'Arial';
   flex-direction: column;
   justify-content: space-between;
+  
   height: 100vh;
-  max-height: 100%;
+  height: -moz-available;
+  height: -webkit-fill-available;
+  
   margin: 0 auto;
   min-width: 320px;
   max-width: 500px;
