@@ -1,7 +1,7 @@
 .game-area__control-reset {
     background-color: var(--color-text-variant);
     transition: background-color .25s;
-    margin: 25px auto 0;
+    margin: 25px 0 0;
 }
 
 .game-area__control-reset:hover {
