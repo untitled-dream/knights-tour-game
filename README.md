@@ -1,3 +1,5 @@
+<a href='https://github.com/untitled-dream/knights-tour-game/blob/main/README.ru.md'><img src='https://img.shields.io/badge/Read this in-Russian-blue'/></a>
+
 # Knight's Tour Game
 > This game is an implementation of the Knight's Tour problem.
 > 
@@ -7,7 +9,6 @@
 * [General Information](#general-information)
 * [Technologies Used](#technologies-used)
 * [Room for Improvement](#room-for-improvement)
-* [Contact](#contact)
 
 ## General Information
 You need to make the longest possible sequence of moves (tour) with a chess knight, visiting each cell only once.
@@ -26,6 +27,3 @@ Read more on [Wikipedia](https://en.wikipedia.org/wiki/Knight%27s_tour)
 - Language toggle (RU ⇆ EN)
 - Automatically make a move if there is only one possible
 - The ability to cancel a move
-
-## Contact
-Created by [@untitled_dream](https://t.me/untitled_dream)
