@@ -1,4 +1,4 @@
-<a href='https://github.com/untitled-dream/knights-tour-game/blob/main/README.ru.md'><img src='https://img.shields.io/badge/Read this in-Russian-blue'/></a>
+<a href='https://github.com/untitled-dream/knights-tour-game/blob/main/README.ru.md'><img src='https://img.shields.io/badge/Language-Russian-blue'/></a>
 
 # Knight's Tour Game
 > This game is an implementation of the Knight's Tour problem.

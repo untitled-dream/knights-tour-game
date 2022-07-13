@@ -1,7 +1,7 @@
-<a href='https://github.com/untitled-dream/knights-tour-game/blob/main/README.md'><img src='https://img.shields.io/badge/Read this in-English-blue'/></a>
+<a href='https://github.com/untitled-dream/knights-tour-game/blob/main/README.md'><img src='https://img.shields.io/badge/Язык-Английский-blue'/></a>
 
 # Knight's Tour Game
-> Эта игра является реализацией задачи о ходе коня
+> Эта игра является реализацией задачи о ходе коня.
 > 
 > [Демо](https://untitled-dream.github.io/knights-tour-game/)
 
